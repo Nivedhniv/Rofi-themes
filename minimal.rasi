@@ -1,0 +1,147 @@
+/*************************************************
+ * GLOBAL CONFIGURATION
+ * Applies to the whole Rofi instance
+ *************************************************/
+configuration {
+    modi: "drun";                 // App launcher mode (apps only)
+    show-icons: true;              // Show application icons
+    matching: "normal";            // Strict matching (no fuzzy madness)
+    drun-match-fields: "name";     // Match only app names
+    font: "Pixelify Sans 11 ";        // Font + size
+}
+
+
+/*************************************************
+ * GLOBAL VARIABLES
+ * Think of these like simple constants
+ *************************************************/
+* {
+    bg:        #4d4c4c;             // Main background
+    fg:        #bdbdbd;             // Main text color
+    accent:    #cccccc8f;             // Highlight / accent color     
+    border:    #b3b3b3;             // Border color
+    selected:  #ffffffd5;             // Selected item background
+    f-color: #ffffffff;
+    trans: #00000000;
+}
+
+/*************************************************
+ * WINDOW
+ * The outer container (the big box)
+ *************************************************/
+window {
+    children:[mainbox];
+    background-color: @bg;
+    border: 0px;
+    spacing: 0px; 
+    location:north;
+    y-offset: 150px;
+    border-color: @border;
+    border-radius: 7px;            // Rounded corners
+    padding: 10px;
+    width: 30%;
+}
+
+/*************************************************
+ * MAIN BOX
+ * Holds input + listview
+ *************************************************/
+mainbox {
+    children:[inputbar,listview];
+    orientation:vertical;
+    spacing: 10px;                  // Space between elements
+    background-color: transparent;
+}
+
+/*************************************************
+ * INPUT BAR (search box)
+ *************************************************/
+inputbar {
+    children: [entry ];    // Left: prompt | Right: text field
+    background-color:@trans;
+}
+
+/*************************************************
+ * ENTRY (where you type)
+ *************************************************/
+entry {
+    background-color: @fg;
+    placeholder:"Search...";
+    border: 2px;
+    border-color:@border;
+    border-radius:5px;
+    text-color: rgb(255, 255, 255) ;
+    padding: 5px;
+}
+
+/*************************************************
+ * LISTVIEW
+ * Container for the app results
+ *************************************************/
+listview {
+    background-color: #00000000;
+    lines: 10;        /* rows */                  // Number of visible results
+    spacing: 0px;
+    padding:0px;
+    border-radius:10px;
+    scrollbar: false;
+}
+
+/*************************************************
+ * ELEMENT
+ * One result row (app)
+ *************************************************/
+element {
+    background-color: transparent;
+    orientation:horizontal;
+    /*border: 0px 0px 1px 0px;*/
+    border-color: #000000;
+    padding: 10px;    /**border-radius: 10px;**/
+}
+
+/*************************************************
+ * ELEMENT (selected / highlighted)
+ *************************************************/
+element selected {
+    background-color: @accent;
+    border-radius:5px;
+    border: 0px;
+}
+/*************************************************
+ * ELEMENT TEXT
+ * App name text
+ *************************************************/
+element-text {
+    text-color:@f-color;
+    size:10px;
+    horizontal-align:0;
+    vertical-align:0.5;
+    background-color: #00000000;
+}
+
+
+/*************************************************
+ * ELEMENT ICON
+ * App icon settings
+ *************************************************/
+element-icon {
+    size: 15px;
+    margin: 0 10px 0 0;
+    background-color: #00000000;
+}
+
+/*************************************************
+ * MESSAGE (rarely used)
+ * Shown when no results are found
+ *************************************************/
+message {
+    background-color: @bg;
+    padding:20px;
+}
+
+/*************************************************
+ * MESSAGE TEXT
+ *************************************************/
+textbox {
+    text-color: #000000;
+}

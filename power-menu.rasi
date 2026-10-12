@@ -1,0 +1,38 @@
+* {
+    bg: #111111;
+    fg: #ffffff;
+    accent: #ff5555;
+}
+
+window {
+    background-color: @bg;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 16px;
+    width: 400px;
+    height: 320px;
+}
+
+mainbox {
+    padding: 20px;
+}
+
+listview {
+    spacing: 12px;
+    columns:2;
+
+}
+
+element {
+    padding: 12px;
+    border-radius: 12px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: #000000;
+}
+
+inputbar {
+    enabled: false;   /* power menu doesn't need search */
+}

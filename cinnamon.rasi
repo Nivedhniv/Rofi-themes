@@ -1,0 +1,150 @@
+/*************************************************
+ * GLOBAL CONFIGURATION
+ * Applies to the whole Rofi instance
+ *************************************************/
+configuration {
+    modi: "drun";                 // App launcher mode (apps only)
+    show-icons: true;              // Show application icons
+    matching: "normal";            // Strict matching (no fuzzy madness)
+    drun-match-fields: "name";     // Match only app names
+    font: "source code pro bold 11";        // Font + size
+}
+
+
+/*************************************************
+ * GLOBAL VARIABLES
+ * Think of these like simple constants
+ *************************************************/
+* {
+    bg:        rgb(53, 53, 53);             // Main background
+    fg:        rgb(109, 109, 109);             // Main text color
+    accent:    #8ab4f8;             // Highlight / accent color
+    border:    #686868;             // Border color
+    selected:  #e4e4e4be;             // Selected item background
+    trans:#00000000;
+    bright:    rgb(156, 156, 156);
+}
+
+/*************************************************
+ * WINDOW
+ * The outer container (the big box)
+ *************************************************/
+window {
+    background-color: @bg;
+    border: 1px;
+    border-color: @border;
+    padding:10;
+    border-radius: 10px;            // Rounded corners
+    width: 25%;
+}
+
+/*************************************************
+ * MAIN BOX
+ * Holds input + listview
+ *************************************************/
+mainbox {
+    spacing: 10px;                  // Space between elements
+    background-color: transparent;
+}
+
+/*************************************************
+ * INPUT BAR (search box)
+ *************************************************/
+inputbar {
+    children: [ prompt, entry ];    // Left: prompt | Right: text field
+    background-color:@trans;
+}
+
+/*************************************************
+ * PROMPT (usually the ">" symbol)
+ *************************************************/
+prompt {
+    /*text: "Apps";
+    text-color: @accent;
+    padding: 8px;
+    background-color: #727272ff;*/
+     enabled: false;
+}
+
+/*************************************************
+ * ENTRY (where you type)
+ *************************************************/
+entry {
+    background-color: #ffffff56;
+    placeholder:"Search...";
+    border: 0px 0px 1px 0px;
+    border-color:#727272ff;
+    border-radius:7px;
+    text-color: rgb(255, 255, 255) ;
+    padding: 10px;
+}
+
+/*************************************************
+ * LISTVIEW
+ * Container for the app results
+ *************************************************/
+listview {
+    background-color: transparent;
+    lines: 6;        /* rows */
+    /* columns: 3;      number of columns */                   // Number of visible results
+    spacing: 0px;
+    scrollbar: false;
+}
+
+/*************************************************
+ * ELEMENT
+ * One result row (app)
+ *************************************************/
+element {
+    background-color: transparent;
+    /*border: 0px 0px 1px 0px;*/
+    border-color: #000000;
+    margin:0px;
+    padding: 10px;    /**border-radius: 10px;**/
+}
+
+/*************************************************
+ * ELEMENT (selected / highlighted)
+ *************************************************/
+element selected {
+    background-color:@fg;
+    text-color: #ffffff;
+    border-radius:7px;
+    border:1px;
+    border-color:@bright;
+}
+/*************************************************
+ * ELEMENT TEXT
+ * App name text
+ *************************************************/
+element-text {
+    text-color: rgb(255, 255, 255);
+    background-color: #00000000;
+}
+
+/*************************************************
+ * ELEMENT ICON
+ * App icon settings
+ *************************************************/
+element-icon {
+    size: 22px;
+    margin: 0 10px 0 0;
+    background-color: #00000000;
+}
+element-icon selected{
+    size:25px;
+}
+/*************************************************
+ * MESSAGE (rarely used)
+ * Shown when no results are found
+ *************************************************/
+message {
+    background-color: transparent;
+}
+
+/*************************************************
+ * MESSAGE TEXT
+ *************************************************/
+textbox {
+    text-color: @fg;
+}
